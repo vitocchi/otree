@@ -29,6 +29,12 @@ SESSION_CONFIGS = [
         num_demo_participants=1,
         app_sequence=['survey', 'payment_info'],
     ),
+    dict(
+        name='network_externality',
+        display_name='network_externality',
+        num_demo_participants=12,
+        app_sequence=['network_externality', 'payment_info'],
+    ),
 ]
 
 # ISO-639 code
