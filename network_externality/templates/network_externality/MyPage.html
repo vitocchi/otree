@@ -16,7 +16,7 @@
     <div>
         Num:
         <span id="num_of_bought">
-            0
+            {{group.num_of_bought}}
         </span>
     </div>
 
@@ -26,11 +26,11 @@
         console.log("script loaded")
         function liveRecv(payload) {
             console.log(payload)
-            numOfBought.innerHTML = payload['num_of_bought']
+            numOfBought.innerHTML = payload
         }
         yesButton.onclick = function () {
             console.log("click")
-            liveSend()
+            liveSend({})
         }
     </script>
 {% endblock %}

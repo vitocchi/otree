@@ -39,9 +39,9 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     num_of_bought = models.IntegerField(initial=0)
-    def increment_num_of_bought(self):
-        num_of_bought += 1
-        return {num_of_bought: num_of_bought}
+    def increment_num_of_bought(self, id_in_group, payload):
+        self.num_of_bought += 1
+        return {0: self.num_of_bought}
     pass
 
 
