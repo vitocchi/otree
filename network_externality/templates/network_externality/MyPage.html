@@ -1,23 +1,23 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
 
-{% block title %}
-    Page title
-{% endblock %}
-
 {% block content %}
-    {{reservation_price}}
+    <p>あなたの留保価格:{{player.reservation_price}}</p>
 
-    <div>
-        <button name="will_buy" value ="True" class="btn btn-primary btn-large">Yes</button>
-        <button name="will_buy" value ="False" class="btn btn-primary btn-large">No</button>
-    </div>
-    <button id="yesbutton" type="button">Yes</button>
-    <div>
-        Num:
+    <p>価格:{{Constants.price}}</p>
+
+    <p>ネットワーク外部性:{{Constants.externality}} ✖️ 購入者数</p>
+
+    <p>現在の購入者数:
         <span id="num_of_bought">
             {{group.num_of_bought}}
         </span>
+    </p>
+
+    <p>買う？</p>
+    <div>
+        <button id="yesbutton" name="will_buy" value ="True" class="btn btn-primary btn-large">Yes</button>
+        <button name="will_buy" value ="False" class="btn btn-primary btn-large">No</button>
     </div>
 
     <script>
@@ -25,7 +25,7 @@
         let numOfBought = document.getElementById("num_of_bought")
         console.log("script loaded")
         function liveRecv(payload) {
-            console.log(payload)
+            console.log("receive num of bought", payload)
             numOfBought.innerHTML = payload
         }
         yesButton.onclick = function () {
