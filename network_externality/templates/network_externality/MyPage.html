@@ -6,13 +6,13 @@
 {% endblock %}
 
 {% block content %}
-    {% formfields %}
     {{reservation_price}}
 
     <div>
-        <button id="yesbutton" name="will_buy" value ="True" class="btn btn-primary btn-large">Yes</button>
+        <button name="will_buy" value ="True" class="btn btn-primary btn-large">Yes</button>
         <button name="will_buy" value ="False" class="btn btn-primary btn-large">No</button>
     </div>
+    <button id="yesbutton" type="button">Yes</button>
     <div>
         Num:
         <span id="num_of_bought">
@@ -20,17 +20,17 @@
         </span>
     </div>
 
+    <script>
+        let yesButton = document.getElementById("yesbutton")
+        let numOfBought = document.getElementById("num_of_bought")
+        console.log("script loaded")
+        function liveRecv(payload) {
+            console.log(payload)
+            numOfBought.innerHTML = payload['num_of_bought']
+        }
+        yesButton.onclick = function () {
+            console.log("click")
+            liveSend()
+        }
+    </script>
 {% endblock %}
-
-<script>
-    let yesButton = document.getElementById("yesbutton")
-    let numOfBought = document.getElementById("num_of_bought")
-    function liveRecv(payload) {
-        console.log(payload)
-        numOfBought.innerHTML = payload['num_of_bought']
-    }
-    yesButton.onclick = function () {
-        console.log("click")
-        liveSend()
-    }
-</script>

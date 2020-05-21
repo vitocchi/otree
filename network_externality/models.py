@@ -39,7 +39,7 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     num_of_bought = models.IntegerField(initial=0)
-    def increment_num_of_bougth_user(self):
+    def increment_num_of_bought(self):
         num_of_bought += 1
         return {num_of_bought: num_of_bought}
     pass
