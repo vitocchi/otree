@@ -5,7 +5,8 @@ from .models import Constants
 
 class MyPage(Page):
     form_model = 'player'
-    form_fields = ['will_buy']
+    #form_fields = ['will_buy']
+    live_method = 'increment_num_of_bougth_user'
     def vars_for_template(self):
         return dict(reservation_price=self.player.reservation_price)
     pass

@@ -9,6 +9,28 @@
     {% formfields %}
     {{reservation_price}}
 
-    {% next_button %}
+    <div>
+        <button id="yesbutton" name="will_buy" value ="True" class="btn btn-primary btn-large">Yes</button>
+        <button name="will_buy" value ="False" class="btn btn-primary btn-large">No</button>
+    </div>
+    <div>
+        Num:
+        <span id="num_of_bought">
+            0
+        </span>
+    </div>
 
 {% endblock %}
+
+<script>
+    let yesButton = document.getElementById("yesbutton")
+    let numOfBought = document.getElementById("num_of_bought")
+    function liveRecv(payload) {
+        console.log(payload)
+        numOfBought.innerHTML = payload['num_of_bought']
+    }
+    yesButton.onclick = function () {
+        console.log("click")
+        liveSend()
+    }
+</script>
