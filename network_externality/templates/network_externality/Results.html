@@ -2,11 +2,17 @@
 {% load otree static %}
 
 {% block title %}
-    Page title
+    結果
 {% endblock %}
 
 {% block content %}
-    {{profit}}
+    <p>最終的に12人の参加者のうち{{group.num_of_bought}}人が購入しました。</p>
+    {% if buy %}
+    <p>あなたは購入したので</p>
+    {% else %}
+    <p>あなたは購入しなかったので</p>
+    {% endif %}
+    <p>あなたの利益は{{payoff}}です。</p>
+
+    {% next_button %}
 {% endblock %}
-
-

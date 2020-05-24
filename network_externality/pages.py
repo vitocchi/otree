@@ -11,12 +11,13 @@ class MyPage(Page):
 
 
 class ResultsWaitPage(WaitPage):
-    pass
+    after_all_players_arrive = 'set_payoffs'
 
 
 class Results(Page):
+    form_model = 'player'
     def vars_for_template(self):
-        return dict(profit=self.player.profit())
+        return dict(payoff=self.player.payoff, buy = self.player.will_buy>0)
     pass
 
 
